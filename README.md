@@ -5,3 +5,5 @@ Usage: ./compress_file *FileToCompress*
 Compresses a file by replacing sequences of identical bytes
 by a pair of bytes, a repetition count byte followed by
 the byte to be repeated.
+
+test output file with: https://github.com/kornel-kidoodle/byte_viewer

@@ -3,28 +3,16 @@
 #include <stdlib.h>
 
 #define BITS 8
+#define MAX_BYTE_SIZE 0xFF
 
-int count_bytes(int i)
-{
-    int count = 0;
-    while (i > 0) {
-        i >>= BITS;
-        count++;
-    }
-    return count;
-}
 
 void write_bytes(FILE *fp_out, BYTE *byte, int count)
 {
-    BYTE byte_count = 0; 
-    int num_bytes = count_bytes(count);
-
-    for (int i = 0; i < num_bytes; i++) {
-        byte_count = (count >> (i * BITS)) & 0xFF;
-        if (putc(byte_count, fp_out) == EOF)
+    for (; count >= MAX_BYTE_SIZE; count -= MAX_BYTE_SIZE) {
+        if (putc(MAX_BYTE_SIZE, fp_out) == EOF)
             terminate("Error writing byte.\n");
     }
-    if (putc(*byte, fp_out) == EOF)
+    if (putc(count, fp_out) == EOF || putc(*byte, fp_out) == EOF)
         terminate("Error writing byte.\n");
 }
 

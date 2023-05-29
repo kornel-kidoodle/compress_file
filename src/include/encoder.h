@@ -7,9 +7,6 @@ typedef char BYTE;
 
 /* Function prototypes */
 
-/* Counts the number of bytes needed to represent an integer. */
-int count_bytes(int i);
-
 /* Encodes the input file using run-length encoding. */
 void run_length_encoder(FILE *fp_in, FILE *fp_out);
 

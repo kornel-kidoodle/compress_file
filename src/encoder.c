@@ -16,11 +16,11 @@ int count_bytes(int i)
 
 void write_bytes(FILE *fp_out, BYTE *byte, int count)
 {
-    BYTE byte_count = 0;
+    BYTE byte_count = 0; 
     int num_bytes = count_bytes(count);
 
     for (int i = 0; i < num_bytes; i++) {
-        byte_count |= (count >> (i * BITS)) & 0xFF;
+        byte_count = (count >> (i * BITS)) & 0xFF;
         if (putc(byte_count, fp_out) == EOF)
             terminate("Error writing byte.\n");
     }

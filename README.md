@@ -1,6 +1,6 @@
 # Simple File Compression Using Run-Length Encoding
 
-Usage: ./compress_file [OPTION] [FILE]
+Usage: ./compress_file [OPTION] [FILE]  
 Option: [-d] to decompress file
 
 Compresses a file by replacing sequences of identical bytes
